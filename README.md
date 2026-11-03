@@ -1,4 +1,4 @@
-<p align="center"><img src="https://raw.githubusercontent.com/NEXara/WH40K-Darktide-Thai/main/docs/images/banner.svg" alt="Darktide ม็อดแปลไทย เลือกหมวดและคืนภาษาอังกฤษได้" width="100%"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/NEXara/WH40K-Darktide-Thai/60e63305064d8fc26aba7205de87ca1188c44539/docs/images/banner.svg" alt="Darktide ม็อดแปลไทย เลือกหมวดและคืนภาษาอังกฤษได้" width="100%"></p>
 
 # WH40K: Darktide — ม็อดแปลไทย
 
