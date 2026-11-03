@@ -2,6 +2,8 @@
 
 # WH40K: Darktide — ม็อดแปลไทย
 
+**เวอร์ชันล่าสุด: 1.0.3 · อัปเดตล่าสุด: 4 พฤศจิกายน 2569 (04/11/2026)**
+
 อ่านคำอธิบายไอเทม Talent ภารกิจ และซับบทพูดเป็นภาษาไทยได้ โดยยังเก็บชื่ออาวุธ ไอเทม ศัตรู และหัวข้อเมนูเป็นอังกฤษ จะได้หาเทียบกับไกด์หรือคุยกับเพื่อนได้ง่าย
 
 **[ดาวน์โหลดชุดพร้อมติดตั้ง](https://github.com/NEXara/WH40K-Darktide-Thai/releases/latest)** · **[ดูคลิป Preview](https://www.youtube.com/watch?v=UfbwgEBtZoI)** · **[แจ้งคำแปลหรือปัญหา](https://github.com/NEXara/WH40K-Darktide-Thai/issues)**
