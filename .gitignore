@@ -1,0 +1,8 @@
+*.zip
+*.exe
+*.exe.config
+__pycache__/
+*.pyc
+work/
+output/
+*.tmp
