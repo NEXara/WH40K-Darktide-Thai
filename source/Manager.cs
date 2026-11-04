@@ -12,8 +12,8 @@ using System.Text.RegularExpressions;
 
 [assembly: System.Reflection.AssemblyTitle("WH40K: Darktide - Mod แปลไทย")]
 [assembly: System.Reflection.AssemblyProduct("WH40K: Darktide - Mod แปลไทย")]
-[assembly: System.Reflection.AssemblyVersion("1.0.3.0")]
-[assembly: System.Reflection.AssemblyFileVersion("1.0.3.0")]
+[assembly: System.Reflection.AssemblyVersion("1.0.4.0")]
+[assembly: System.Reflection.AssemblyFileVersion("1.0.4.0")]
 public class Entry { public string path; public string hash; public bool existed; public string installedHash; }
 public class Package { public string version; public string mod_version; public string updated_date; public string build; public string[] supported_builds; public List<Entry> files; }
 public static class Engine {
@@ -175,7 +175,7 @@ public static class PatchEngine {
 }
 public static class Categories {
  public static readonly string[] Keys={"weapon_lore","blessings","item_lore","item_weapon_descriptions","talents","abilities","missions","circumstances","achievements_descriptions","story_events","subtitles"};
- public static readonly string[] Labels={"Weapon Lore","Blessings","Item Lore","Item / Weapon Descriptions","Talents","Abilities","Missions","Circumstances","Achievements","Story Events","Subtitles"};
+ public static readonly string[] Labels={"Weapon Lore","Blessings","Item Lore","Item / Weapon Descriptions","Talents","Abilities","Missions","Circumstances","Achievements","Story Events & Loading","Subtitles"};
  public static readonly string[][] Groups={new[]{"weapon_lore","blessings","item_lore","item_weapon_descriptions"},new[]{"talents","abilities"},new[]{"missions","circumstances","achievements_descriptions","story_events","subtitles"}};
  public const string ConfigPath="mods/thai_localization/scripts/mods/thai_localization/translation_categories.lua";
  public const string RuntimePath="mods/thai_localization/scripts/mods/thai_localization/thai_localization.lua";
@@ -200,7 +200,7 @@ public class CategoryPanel:Panel {
  void Render(){rebuilding=true;options.Controls.Clear();options.AutoScroll=true;options.WrapContents=false;
  if(custom.Checked){
   custom.Text="Custom · แยกทั้งหมด";
-  string[] help={"แปลประวัติและเรื่องราวเบื้องหลังอาวุธ","แปลคำอธิบายเอฟเฟกต์ของ Blessings","แปลเรื่องราว ภูมิหลัง และคำอธิบายรูปลักษณ์ไอเทม","แปลโบนัสอุปกรณ์และกลไกอาวุธ","แปลคำอธิบายและผลของ Talent","แปลสกิล บทฝึก และระบบต่อสู้","แปลเป้าหมายและคำอธิบายภารกิจ","แปลเงื่อนไขพิเศษและตัวปรับภารกิจ","แปลคำอธิบายความสำเร็จในเกม","แปลเนื้อเรื่อง ภูมิหลัง ข้อความช่วยเหลือและแจ้งสถานะ","แปลซับบทสนทนาตัวละครระหว่างเล่น: คุยกับเพื่อน เตือนศัตรู ร้องขอความช่วยเหลือ"};
+  string[] help={"แปลประวัติและเรื่องราวเบื้องหลังอาวุธ","แปลคำอธิบายเอฟเฟกต์ของ Blessings","แปลเรื่องราว ภูมิหลัง และคำอธิบายรูปลักษณ์ไอเทม","แปลโบนัสอุปกรณ์และกลไกอาวุธ","แปลคำอธิบายและผลของ Talent","แปลสกิล บทฝึก และระบบต่อสู้","แปลเป้าหมายและคำอธิบายภารกิจ","แปลเงื่อนไขพิเศษและตัวปรับภารกิจ","แปลคำอธิบายความสำเร็จในเกม","แปลเนื้อเรื่อง กิจกรรม คติหน้าโหลด และข้อความช่วยเหลือ","แปลซับบทสนทนาตัวละครระหว่างเล่น: คุยกับเพื่อน เตือนศัตรู ร้องขอความช่วยเหลือ"};
   int rows=(Categories.Keys.Length+1)/2;
   for(int row=0;row<rows;row++){
    var holder=new Panel{Width=480,Height=79,Margin=new Padding(0)};
@@ -214,7 +214,7 @@ public class CategoryPanel:Panel {
  }else{
   custom.Text="Custom · แยกทั้งหมด";
   string[] names={"Weapons & Items","Talents & Abilities","Missions & Events"};
-  string[] help={"แปลประวัติอาวุธ ไอเทม เอฟเฟกต์ Blessings และโบนัสอุปกรณ์","แปล Talent สกิล ระบบต่อสู้ และบทฝึก","แปลภารกิจ กิจกรรม และซับบทพูดตัวละครระหว่างเล่น\r\nรวมคุยกับเพื่อน เตือนศัตรู และขอความช่วยเหลือ"};
+  string[] help={"แปลประวัติอาวุธ ไอเทม เอฟเฟกต์ Blessings และโบนัสอุปกรณ์","แปล Talent สกิล ระบบต่อสู้ และบทฝึก","แปลภารกิจ กิจกรรม และซับบทพูดตัวละครระหว่างเล่น\r\nรวมคติหน้าโหลด คุยกับเพื่อน และเตือนศัตรู"};
   for(int i=0;i<Categories.Groups.Length;i++){
    string[] keys=Categories.Groups[i];int count=keys.Count(k=>selected.Contains(k));
    var c=new CheckBox{UseMnemonic=false,Text=names[i],Width=480,Height=25,ThreeState=true,CheckState=count==0?CheckState.Unchecked:count==keys.Length?CheckState.Checked:CheckState.Indeterminate,Margin=new Padding(0)};
@@ -227,11 +227,11 @@ public class CategoryPanel:Panel {
 
 public class MainForm:Form {
  TextBox game=new TextBox(),details=new TextBox();Label state=new Label();Button patch=new Button(),choose=new Button(),expand=new Button(),restore=new Button();CheckBox update=new CheckBox();CategoryPanel categories=new CategoryPanel();string package=Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"package");
- public MainForm(){Text="WH40K: Darktide - Mod แปลไทย • Setup 1.0.3";ClientSize=new Size(550,585);FormBorderStyle=FormBorderStyle.FixedSingle;MaximizeBox=false;StartPosition=FormStartPosition.CenterScreen;Font=new Font("Segoe UI",10);BackColor=Color.FromArgb(246,247,249);AutoScaleMode=AutoScaleMode.Dpi;
+ public MainForm(){Text="WH40K: Darktide - Mod แปลไทย • Setup 1.0.4";ClientSize=new Size(550,585);FormBorderStyle=FormBorderStyle.FixedSingle;MaximizeBox=false;StartPosition=FormStartPosition.CenterScreen;Font=new Font("Segoe UI",10);BackColor=Color.FromArgb(246,247,249);AutoScaleMode=AutoScaleMode.Dpi;
   Icon=System.Drawing.Icon.ExtractAssociatedIcon(Application.ExecutablePath);
   var badge=new PictureBox{Image=Icon.ToBitmap(),Location=new Point(22,17),Size=new Size(32,32),SizeMode=PictureBoxSizeMode.Zoom};
   var title=new Label{Text="WH40K: Darktide - Mod แปลไทย",Font=new Font("Segoe UI",17,FontStyle.Bold),Location=new Point(64,15),AutoSize=true};
-  var subtitle=new Label{Text="ฉบับเผยแพร่ 1.0.3 • คงชื่อและหัวข้อ UI เป็นอังกฤษ",Location=new Point(22,53),AutoSize=true,ForeColor=Color.FromArgb(80,87,98)};
+  var subtitle=new Label{Text="ฉบับเผยแพร่ 1.0.4 • คงชื่อและหัวข้อ UI เป็นอังกฤษ",Location=new Point(22,53),AutoSize=true,ForeColor=Color.FromArgb(80,87,98)};
   game.SetBounds(22,85,405,29);choose.Text="เลือกเกม";choose.SetBounds(435,83,92,32);choose.Click+=(s,e)=>Choose();
   var example=new Label{Text="ตัวอย่างโฟลเดอร์เกม:\r\nN:\\SteamLibrary\\steamapps\\common\\Warhammer 40,000 DARKTIDE\r\nเลือกโฟลเดอร์หลักนี้ ไม่ต้องเลือกไฟล์ .exe",Location=new Point(22,121),Size=new Size(510,57),Font=new Font("Segoe UI",8.5f),ForeColor=Color.FromArgb(95,103,115)};
   state.SetBounds(22,186,506,34);state.Text="ยังไม่ได้เลือกโฟลเดอร์เกม";state.ForeColor=Color.FromArgb(65,76,89);
