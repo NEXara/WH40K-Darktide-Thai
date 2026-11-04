@@ -23,7 +23,7 @@
 
 [![กดดูคลิป Preview ม็อดแปลไทย Darktide](https://i.ytimg.com/vi/UfbwgEBtZoI/hqdefault.jpg)](https://www.youtube.com/watch?v=UfbwgEBtZoI)
 
-คลิป Preview Gameplay ที่ NEXara บันทึกไว้ กดที่ภาพเพื่อดูบน YouTube
+คลิป Preview Mod กดที่ภาพเพื่อดูบน YouTube
 
 ## ติดตั้งครั้งแรก
 
